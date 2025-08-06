@@ -1,11 +1,15 @@
 from flask import Blueprint, Flask,redirect,render_template,session,url_for,request,jsonify,make_response,Response
 import sqlite3
 from flask_cors import CORS
+import os
+
 
 auth_bp = Blueprint('auth',__name__)
 
 def get_db_connection():
-    conn = sqlite3.connect('instance/database.db')
+    BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+    db_path = os.path.join(BASE_DIR, 'Backends', 'instance', 'database.db')
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 

@@ -1,15 +1,15 @@
-from flask import Blueprint,session,url_for,request,jsonify
-from flask_cors import CORS
+from flask import Blueprint,session,url_for,request,jsonify,current_app
 import sqlite3
-from models import MenuItem,Order,OrderItem,User
-from models.db import db
+
+from Backends.models.db import db
 
 cart_bp = Blueprint('cart',__name__, url_prefix='/api/cart')
 
 # Add to cart items
 
 def cart_db_connection():
-    conn = sqlite3.connect('instance/database.db')
+    db_path = current_app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 

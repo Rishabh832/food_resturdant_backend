@@ -1,7 +1,7 @@
-from models import db
+from Backends.models import db
 
 # Register all models 
-from models.User import User
-from models.MenuItem import MenuItem
-from models.OrderItem import OrderItem
-from models.Order import Order
+from Backends.models.User import User
+from Backends.models.MenuItem import MenuItem
+from Backends.models.OrderItem import OrderItem
+from Backends.models.Order import Order

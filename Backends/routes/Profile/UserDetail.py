@@ -1,11 +1,12 @@
-from flask import Blueprint, session, request, jsonify
+from flask import Blueprint, session, request, jsonify,current_app
 import sqlite3
 from datetime import datetime
 
 profile_bp = Blueprint('Profile', __name__, url_prefix='/api/profile')
 
 def profile_db_connection():
-    conn = sqlite3.connect('instance/database.db', timeout=10)
+    db_path = current_app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -79,5 +80,6 @@ def UserProfile():
         return jsonify(dict(row))
     else:
         return jsonify({"error":"Profile not found"})
+
 
 

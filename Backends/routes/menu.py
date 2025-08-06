@@ -1,11 +1,12 @@
-from flask import Blueprint,jsonify,request
+from flask import Blueprint,jsonify,request,current_app
 import sqlite3
 
 
 menu_bp = Blueprint('menu',__name__,url_prefix='/api/menu')
 
 def menu_db_connection():
-    conn = sqlite3.connect('instance/database.db')
+    db_path = current_app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -64,7 +65,7 @@ def update_item(item_id):
 
     conn = menu_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE menu_item SET name=?, description=?, image=?, price=? WHERE id=?", (name,description,image, price, item_id))
+    cursor.execute("UPDATE menu_item SET name=?, description=?, image=?, price=?,category=? WHERE id=?", (name,description,image, price, item_id,category))
     conn.commit()
     conn.close()
     return jsonify({'message': 'Item updated'})

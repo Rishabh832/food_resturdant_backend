@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
-from routes.auth import auth_bp
-from routes.cart import cart_bp
-from routes.menu import menu_bp
-from routes.orderplaced import order_bp
-from routes.Profile.UserDetail import profile_bp
-from models.db import db
+from Backends.routes.auth import auth_bp
+from Backends.routes.cart import cart_bp
+from Backends.routes.menu import menu_bp
+from Backends.routes.orderplaced import order_bp
+from Backends.routes.Profile.UserDetail import profile_bp
+from Backends.models.db import db
 from flask_jwt_extended import JWTManager
 import os
 
@@ -37,11 +37,11 @@ def create_app():
 
     with app.app_context():
         #  Model imports 
-        from models.User import User
-        from models.MenuItem import MenuItem
-        from models.OrderItem import OrderItem
-        from models.Order import Order
-        from models.UserProfile import UserProfile
+        from Backends.models.User import User
+        from Backends.models.MenuItem import MenuItem
+        from Backends.models.OrderItem import OrderItem
+        from Backends.models.Order import Order
+        from Backends.models.UserProfile import UserProfile
         db.create_all()
         print(" Tables created:", db.metadata.tables.keys())
 
@@ -51,3 +51,4 @@ if __name__ == '__main__':
     app = create_app()
     print("🚀 Flask is starting...")
     app.run(debug=True)
+

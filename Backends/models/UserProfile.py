@@ -1,5 +1,5 @@
 
-from app import db
+from Backends.models.db import db
 
 class UserProfile(db.Model):
     __tablename__ = 'user_detail'

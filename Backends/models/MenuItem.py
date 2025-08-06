@@ -1,15 +1,9 @@
-from models.db import db
+from Backends.models.db import db
 from sqlalchemy.orm import validates
 
 
 class MenuItem(db.Model):
     __tablename__ = 'menu_item'
-
-    category_choices = [
-        ('starter', 'starter'),
-        ('MainCourse', 'MainCourse'),
-        ('Desert', 'Desert')
-    ]
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
@@ -23,15 +17,6 @@ class MenuItem(db.Model):
         if value <= 0:
             raise ValueError("Price must be a positive number.")
         return value
-    
-    @validates('category')
-    def validate_category(self, key, value):
-        valid_categories = [choice[0] for choice in self.category_choices]
-        if value not in valid_categories:
-            raise ValueError(f"Invalid category. Choose from: {', '.join(valid_categories)}")
-        return value
-
-
 
     def __repr__(self):
         return f"<MenuItem {self.name} - ₹{self.price}>"
