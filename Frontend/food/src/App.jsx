@@ -8,7 +8,7 @@ import SignupForm from './components/signupForm';
 import LoginForm from './components/LoginForm';
 import Home from './pages/Home';
 import Adminpannel from './Admin/Adminpannel';
-import Menupage from './pages/menupage';
+import Menupage from './pages/Menupage';
 import Addtocart from './cart/Addtocart';
 import Viewcart from './cart/Viewcart';
 import AddProfile from './Profile/Addprofile';
