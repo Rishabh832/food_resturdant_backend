@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MenuHomepage from './MenuHomepage';
-import Footer from '../base/footer';
+import Footer from '../base/Footer';
 import Mainnav from '../base/Mainnav';
 
 const Menupage = () => {
