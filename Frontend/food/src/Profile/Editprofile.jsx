@@ -95,10 +95,11 @@ const EditProfile = () => {
 
 const InputField = ({ label, name, value, onChange, type = "text" }) => (
   <div>
-    <label className="block text-gray-700 font-medium mb-1">{label}</label>
+    <label className="block text-gray-700 font-medium mb-1" htmlFor={name}>{label}</label>
     <input
       type={type}
       name={name}
+      id={name}
       value={value}
       onChange={onChange}
       required

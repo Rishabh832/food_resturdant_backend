@@ -49,7 +49,7 @@ const SignupForm = () => {
           <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
           <input
             type="text"
-            placeholder="e.g. rishabh123"
+            placeholder="Enter username"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
             onChange={(e) => setForm({ ...form, username: e.target.value })}
             required

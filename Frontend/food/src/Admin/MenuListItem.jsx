@@ -81,6 +81,12 @@ const MenuListItem = () => {
                   value={editForm.price}
                   onChange={e => setEditForm({ ...editForm, price: e.target.value })} required
                 />
+                <input
+                  className="border p-2 rounded w-full"
+                  placeholder="Category"
+                  value={editForm.category}
+                  onChange={e => setEditForm({ ...editForm, category: e.target.value })} required
+                />
               </div>
               <div className="flex gap-2">
                 <button
