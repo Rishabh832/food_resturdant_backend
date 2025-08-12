@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/images/logo.png';
-import Loginbtn from './loginbtn';
+import Loginbtn from './Loginbtn';
 import Signupbtn from './Signupbtn';
 
 const Navbar = () => {

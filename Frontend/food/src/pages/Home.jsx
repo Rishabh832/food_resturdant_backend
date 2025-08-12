@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../base/Nav'
-import Footer from '../base/footer'
+import Footer from '../base/Footer'
 import MainContent from '../base/MainContent'
 import { ToastContainer, toast } from 'react-toastify'
 
