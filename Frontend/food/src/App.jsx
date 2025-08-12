@@ -16,6 +16,7 @@ import UserProfile from './Profile/UserProfile';
 import OrderHistory from './order_success/Order_history';
 import Editprofile from './Profile/Editprofile';
 import Aboutus from './pages/Aboutus';
+import NotFound from './pages/NotFound';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/profile" element={<PrivateRoute><UserProfile/></PrivateRoute>} />
         <Route path="/myorders" element={<PrivateRoute><OrderHistory/></PrivateRoute>} />
         <Route path="/edit" element={<PrivateRoute><Editprofile/></PrivateRoute>} />
+         <Route path="*" element={<NotFound />} />
       </Routes>
 
       <ToastContainer
