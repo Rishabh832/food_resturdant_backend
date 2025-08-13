@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';        
 import 'react-toastify/dist/ReactToastify.css'; 
+import API_URL from '../api';
 
 const AddProfile = () => {
   const [form, setForm] = useState({
@@ -21,7 +22,7 @@ const AddProfile = () => {
   const Addprofile = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/profile/username', form, {
+      await axios.post(`${API_URL}/api/profile/username`, form, {
         withCredentials: true
       });
       setForm({

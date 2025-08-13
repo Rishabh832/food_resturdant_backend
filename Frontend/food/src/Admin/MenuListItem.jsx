@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API_URL from '../api';
 
 const MenuListItem = () => {
   const [menu, setMenu] = useState([]);
@@ -13,7 +14,7 @@ const MenuListItem = () => {
   });
 
   const fetchMenu = () => {
-    axios.get('http://localhost:5000/api/menu/')
+    axios.get(`${API_URL}/api/menu/`)
       .then(res => setMenu(res.data));
   };
 
@@ -22,7 +23,7 @@ const MenuListItem = () => {
   }, []);
 
   const deleteItem = (id) => {
-    axios.delete(`http://localhost:5000/api/menu/remove/${id}`, { withCredentials: true })
+    axios.delete(`${API_URL}/api/menu/remove/${id}`, { withCredentials: true })
       .then(fetchMenu);
   };
 
@@ -38,7 +39,7 @@ const MenuListItem = () => {
   };
 
   const saveEdit = () => {
-    axios.put(`http://localhost:5000/api/menu/update/${editItem}`, editForm)
+    axios.put(`${API_URL}/api/menu/update/${editItem}`, editForm)
       .then(() => {
         setEditItem(null);
         fetchMenu();

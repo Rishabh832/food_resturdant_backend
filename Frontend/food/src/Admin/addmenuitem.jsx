@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_URL from '../api';
 
 const AddMenuItem = ({ onItemAdded }) => {
   const [form, setForm] = useState({
@@ -12,7 +13,7 @@ const AddMenuItem = ({ onItemAdded }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/menu/add', form);
+    await axios.post(`${API_URL}/api/menu/add`, form);
     onItemAdded?.(); 
     setForm({ name: '', image: '', description: '', price: '', category: '' });
   };

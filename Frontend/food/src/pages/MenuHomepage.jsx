@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Addtocart from '../cart/Addtocart';
 import {useNavigate} from 'react-router-dom'
+import API_URL from '../api';
 
 
 const MenuHomepage = () => {
@@ -12,7 +13,7 @@ const MenuHomepage = () => {
   useEffect(() => {
     const apimenuItem = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/menu/');
+        const response = await axios.get(`${API_URL}/api/menu/`);
         setData(response.data);
         
         

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Logoutbtn from '../base/Logoutbtn'
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../api';
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -13,7 +14,7 @@ const UserProfile = () => {
   useEffect(() => {
     const profile = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/profile/user_profile', {
+        const res = await axios.get(`${API_URL}/api/profile/user_profile`, {
           withCredentials: true,
         });
         setUser(res.data);

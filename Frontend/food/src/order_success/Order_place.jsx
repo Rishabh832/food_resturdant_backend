@@ -2,13 +2,14 @@ import React from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
+import API_URL from '../api';
 
 const Order_place = () => {
   let navigate = useNavigate()
   const ordersuccess = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/order/placed',
+        `${API_URL}/api/order/placed`,
         {},
         {
           withCredentials: true,

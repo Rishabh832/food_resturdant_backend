@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
+import API_URL from '../api';
 
 const LoginForm = () => {
   const [form, setForm] = useState({ username: '', password: '' });
@@ -16,7 +17,7 @@ const LoginForm = () => {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/login', form, {
+      const res = await axios.post(`${API_URL}/api/login`, form, {
         withCredentials: true,
       });
 

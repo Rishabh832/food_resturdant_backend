@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';        
 import 'react-toastify/dist/ReactToastify.css';  
+import API_URL from '../api';
 
 const EditProfile = () => {
   const [editForm, setEditForm] = useState({
@@ -22,7 +23,7 @@ const EditProfile = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/profile/user_profile', {
+      const res = await axios.get(`${API_URL}/api/profile/user_profile`, {
         withCredentials: true,
       });
 
@@ -49,7 +50,7 @@ const EditProfile = () => {
 
   const saveEditData = async () => {
     try {
-      await axios.put('http://localhost:5000/api/profile/profile_edit', editForm, {
+      await axios.put(`${API_URL}/api/profile/profile_edit`, editForm, {
         withCredentials: true
       });
       toast.success('Profile updated successfully')

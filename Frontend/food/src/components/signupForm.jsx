@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';
+import API_URL from '../api';
 
 
 const SignupForm = () => {
@@ -15,7 +16,7 @@ const SignupForm = () => {
     e.preventDefault();
     seterror('')
     try {
-      await axios.post('http://localhost:5000/api/signup', form);
+      await axios.post(`${API_URL}/api/signup`, form);
       setForm({username: '', password: '' })
       toast.success('SignUp Successfully ✔️')
       setTimeout(() => {

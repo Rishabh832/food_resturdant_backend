@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import API_URL from '../api';
 
 const AddToCart = ({ itemId }) => {
   
@@ -9,7 +10,7 @@ const AddToCart = ({ itemId }) => {
   const handleAddToCart = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/cart/add_cart',
+        `${API_URL}/api/cart/add_cart`,
         { item_id: itemId },
         {
           withCredentials: true,

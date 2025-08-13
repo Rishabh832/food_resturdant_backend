@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Order_place from '../order_success/Order_place';
 import Historynav from '../base/Historynav';
+import API_URL from '../api';
 
 const Viewcart = () => {
   const [data, setData] = useState([]);
 
   const refreshCart = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/cart/view_cart', {
+      const res = await axios.get(`${API_URL}/api/cart/view_cart`, {
         withCredentials: true,
       });
       setData(res.data);
@@ -28,7 +29,7 @@ const Viewcart = () => {
 
   const increase = async (itemId) => {
     try {
-      await axios.post('http://localhost:5000/api/cart/add_cart', {
+      await axios.post(`${API_URL}/api/cart/add_cart`, {
         item_id: itemId,
       }, { withCredentials: true });
       refreshCart();
@@ -39,7 +40,7 @@ const Viewcart = () => {
 
   const decrease = async (itemId) => {
     try {
-      await axios.post(`http://localhost:5000/api/cart/decrease_cart/${itemId}`, {}, {
+      await axios.post(`${API_URL}/api/cart/decrease_cart/${itemId}`, {}, {
         withCredentials: true,
       });
       refreshCart();
@@ -50,7 +51,7 @@ const Viewcart = () => {
 
   const remove = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/cart/remove_cart/${itemId}`, {
+      await axios.delete(`${API_URL}/api/cart/remove_cart/${itemId}`, {
         withCredentials: true,
       });
       refreshCart();
