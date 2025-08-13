@@ -62,6 +62,10 @@ def create_app():
 
 app = create_app()
 
+def apply_cors_headers(response):
+    response.headers["Access-Control-Allow-Credentials"] = "true"
+    return response
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  
     print(f"🚀 Flask is starting on port {port}...")
