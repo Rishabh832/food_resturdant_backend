@@ -38,7 +38,7 @@ def create_app():
     jwt = JWTManager(app)
 
     # Allow frontend
-    CORS(app, origins=['http://localhost:5173',"https://food-resturdant-frontend.onrender.com"], supports_credentials=True)
+    CORS(app, origins=['http://localhost:5173',"https://food-resturdant-backend-1.onrender.com"], supports_credentials=True)
 
     # Blueprints
     app.register_blueprint(auth_bp)
